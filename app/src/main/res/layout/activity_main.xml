@@ -50,6 +50,7 @@
         android:layout_marginTop="112dp"
         android:backgroundTint="#C04F00C5"
         android:text="Wish me luck!"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
