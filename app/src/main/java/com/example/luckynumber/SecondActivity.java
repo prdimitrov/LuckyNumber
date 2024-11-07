@@ -36,9 +36,7 @@ public class SecondActivity extends AppCompatActivity {
             int randomNumber = i.getIntExtra("randomNumber", 0);
             luckyNumberTxt.setText("" + randomNumber);
 
-            shareButton.setOnClickListener(v1 -> {
-                shareData(username, randomNumber);
-            });
+            shareButton.setOnClickListener(v1 -> shareData(username, randomNumber));
 
             return insets;
         });
