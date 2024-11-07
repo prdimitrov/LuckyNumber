@@ -15,6 +15,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -46,8 +48,9 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         //Explicit Intent
                         Intent i = new Intent(getApplicationContext(), SecondActivity.class);
-                        //Passing the name to second activity
+                        //Pass the name and the random number to SecondActivity
                         i.putExtra("name", username);
+                        i.putExtra("randomNumber", generateRandomNumber());
                         //Going on to the second activity
                         startActivity(i);
                     }
@@ -56,5 +59,12 @@ public class MainActivity extends AppCompatActivity {
 
             return insets;
         });
+    }
+    private int generateRandomNumber() {
+        Random random = new Random();
+        int upperLimit = 1000;
+        //Generate number from 1 to 1000 (upperLimit)!
+        int randomNumberGenerated = random.nextInt(upperLimit);
+        return randomNumberGenerated;
     }
 }
