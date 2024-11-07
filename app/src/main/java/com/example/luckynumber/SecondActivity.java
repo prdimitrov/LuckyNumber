@@ -55,12 +55,4 @@ public class SecondActivity extends AppCompatActivity {
 
         startActivity(Intent.createChooser(i, "Choose a platform"));
     }
-
-//    private int generateRandomNumber() {
-//        Random random = new Random();
-//        int upperLimit = 1000;
-//        //This will generate numbers from 1 to 1000 (upperLimit)!
-//        int randomNumberGenerated = random.nextInt(upperLimit);
-//        return randomNumberGenerated;
-//    }
 }
