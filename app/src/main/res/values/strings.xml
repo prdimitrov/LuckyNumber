@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">LuckyNumber</string>
+    <string name="enter_your_name">Enter your name please...</string>
+    <string name="lucky_number">Lucky Number</string>
+    <string name="wish_me_luck">Wish me luck!</string>
+    <string name="search">Search</string>
+    <string name="home">Home</string>
+    <string name="test">Test</string>
+    <string name="your_lucky_number">Your Lucky Number is:</string>
+    <string name="share_my_lucky_number">Share my Lucky Number</string>
 </resources>
