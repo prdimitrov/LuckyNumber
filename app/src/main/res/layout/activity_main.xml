@@ -13,24 +13,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corner"
+        android:fontFamily="@font/poppins_black"
         android:padding="1dp"
         android:text="@string/lucky_number"
         android:textAllCaps="true"
-        android:textSize="46sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.205"
-            android:fontFamily="@font/poppins_black" />
+        app:layout_constraintVertical_bias="0.205" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="277dp"
+        android:layout_marginTop="69dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="250dp"
         android:hint="@string/enter_your_name"
@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/button"
@@ -63,11 +63,11 @@
         android:layout_marginTop="378dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/dice"
+        android:contentDescription="Dice image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0"
-        android:contentDescription="Dice image"/>
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

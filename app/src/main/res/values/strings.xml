@@ -8,4 +8,7 @@
     <string name="test">Test</string>
     <string name="your_lucky_number">Your Lucky Number is:</string>
     <string name="share_my_lucky_number">Share my Lucky Number</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="do_you_feel_lucky">Do you feel lucky?</string>
 </resources>

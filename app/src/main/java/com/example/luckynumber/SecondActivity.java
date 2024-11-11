@@ -3,7 +3,10 @@ package com.example.luckynumber;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +17,9 @@ import androidx.core.view.WindowInsetsCompat;
 public class SecondActivity extends AppCompatActivity {
     TextView welcomeTxt, luckyNumberTxt;
     Button shareButton;
+    RadioGroup radioGroup;
+    RadioButton yesButton, noButton;
+    String luckyPerson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +33,9 @@ public class SecondActivity extends AppCompatActivity {
             welcomeTxt = findViewById(R.id.textView2);
             luckyNumberTxt = findViewById(R.id.lucky_number_txt);
             shareButton = findViewById(R.id.share_button);
+            radioGroup = findViewById(R.id.radio_group);
+            yesButton = findViewById(R.id.yes_radio_button);
+            noButton = findViewById(R.id.no_radio_button);
 
             //Receive the data from MainActivity
             Intent i = getIntent();
@@ -36,7 +45,26 @@ public class SecondActivity extends AppCompatActivity {
             int randomNumber = i.getIntExtra("randomNumber", 0);
             luckyNumberTxt.setText("" + randomNumber);
 
-            shareButton.setOnClickListener(v1 -> shareData(username, randomNumber));
+            shareButton.setOnClickListener(v1 -> {
+                // Check if any RadioButton is selected currently
+                if (radioGroup.getCheckedRadioButtonId() == -1) {
+                    // No RadioButton is selected
+                    Toast.makeText(this, "Please select if you feel lucky or not!", Toast.LENGTH_SHORT).show();
+                } else {
+                    // A RadioButton is selected, proceed with the sharing
+                    shareData(username, randomNumber);
+                }
+            });
+
+            radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+                if (checkedId == R.id.yes_radio_button) {
+                    Toast.makeText(this, "You do feel lucky!", Toast.LENGTH_SHORT).show();
+                    luckyPerson = "And " + username + " feels lucky today! :)";
+                } else if (checkedId == R.id.no_radio_button) {
+                    Toast.makeText(this, "You don't feel lucky!", Toast.LENGTH_SHORT).show();
+                    luckyPerson = "But " + username + " doesn't feel lucky today! :(";
+                }
+            });
 
             return insets;
         });
@@ -49,7 +77,7 @@ public class SecondActivity extends AppCompatActivity {
 
         //Additional Information
         i.putExtra(Intent.EXTRA_SUBJECT, username + " got lucky today!");
-        i.putExtra(Intent.EXTRA_TEXT, "His lucky number is: " + randomNumber);
+        i.putExtra(Intent.EXTRA_TEXT, "His lucky number is: " + randomNumber + "\n" + luckyPerson);
 
         startActivity(Intent.createChooser(i, "Choose a platform"));
     }
